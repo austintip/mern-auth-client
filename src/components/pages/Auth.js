@@ -1,7 +1,11 @@
+import Login from '../partials/Login';
+import Signup from '../partials/Signup';
+
 const Auth = (props) => {
     return (
         <div>
-            <h1>AUTH page</h1>
+            <Signup />
+            <Login />
         </div>
     );
 }
