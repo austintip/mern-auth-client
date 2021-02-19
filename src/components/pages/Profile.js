@@ -10,8 +10,8 @@ const Profile = (props) => {
             setMessage(response.data.message);
         })
         .catch(err => {
-            console.log(`🐻 Bad news bears, there is an aeeror:\n`, err)
-            setMessage(err);
+            console.log(`🐻 Bad news bears, there is an eeror:\n`, err)
+            setMessage(err.message);
         })
     }, [])
 
