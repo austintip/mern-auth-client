@@ -4,8 +4,8 @@ import Signup from '../partials/Signup';
 const Auth = (props) => {
     return (
         <div>
-            <Signup />
-            <Login />
+            <Signup handleAuth={props.handleAuth}/>
+            <Login handleAuth={props.handleAuth}/>
         </div>
     );
 }

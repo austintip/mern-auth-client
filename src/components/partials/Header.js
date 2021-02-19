@@ -7,17 +7,25 @@ const Header = (props) => {
         margin: 0,
         padding: '1em 0'
     }
+
+    let conditionalLinks = props.currentUser ?
+        <nav>
+            <Link to='/'>Home</Link>{' | '}
+            <Link to='/profile'>Account</Link>{' | '}
+            <span>Logout</span>
+            {/* TODO Logout link */}
+        </nav> :
+        <nav>
+            <Link to='/'>Home</Link>{' | '}
+            <Link to='/auth'>Login/Signup</Link>
+        </nav>
+
     return (
         <header style={style}>
             <h1>
                 It's a website
-                </h1>
-            <nav>
-                {/* TODO: Conditional link rendering */}
-                <Link to='/'>Home</Link>{' | '}
-                <Link to='/auth'>Login/Signup</Link>{' | '}
-                <Link to='/profile'>Account</Link>
-            </nav>
+            </h1>
+            {conditionalLinks}
         </header>
     );
 }
