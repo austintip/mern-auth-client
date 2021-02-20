@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import setAuthToken from '../../utils/setAuthToken';
 import { Redirect } from 'react-router-dom';
@@ -7,6 +7,21 @@ const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const [error, setError] = useState(null);
+
+    // TODO move into its own file
+    const Error = (props) => {
+        useEffect(() => {
+            console.log(props.error);
+        }, [])
+
+        return (
+            <div className='error-card'>
+                <h3>There was an issue</h3>
+                <p>{props.error.message}</p>
+            </div>
+        )
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -19,13 +34,14 @@ const Login = (props) => {
             setAuthToken(response.data.token);
             props.handleAuth(response.data.user);
             setRedirect(true);
-        }).catch(err =>  console.log(`👹 OH NO error logging in\n`, err))
+        }).catch(setError)
     }
 
     if (redirect) return <Redirect to='/profile' />
 
     return (
-        <section>
+        <section className='auth-box'>
+            {error ? <Error error={error} /> : null }
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
             <div className='form-elem'>

@@ -32,7 +32,7 @@ const Signup = (props) => {
     if (redirect) return <Redirect to='/profile' />
 
     return (
-        <section>
+        <section className='auth-box'>
             <h2>SIGNUP</h2>
             <form onSubmit={handleSubmit}>
                 <div className='form-elem'>

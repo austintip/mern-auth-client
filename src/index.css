@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: darkblue;
+}
+
+.nav-link:hover {
+  color: rgb(71, 77, 79);
+  border-bottom: 1px solid #030327;
+  cursor: pointer;
+}
+
+.auth-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.auth-box {
+  border: 1px solid black;
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-elem {
+  margin: .5em;
+  display: flex;
+  justify-content: center;
+}
